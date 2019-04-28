@@ -1,11 +1,11 @@
 <template>
-<div class="container">
-  <div>
-    <h1 class="title">Consolidado de Propuestas</h1>
-      <div class="columns is-multiline">
-       <TarjetaPropuesta :propuesta="propuesta" v-for="propuesta in propuestas" :key= "propuesta.id" />
-      </div>
-  </div>
+  <div class="container">
+    <div>
+      <h1 class="title">Consolidado de Propuestas</h1>
+        <div class="columns is-multiline">
+        <TarjetaPropuesta :propuesta="propuesta" v-for="propuesta in propuestas" :key= "propuesta.id" />
+        </div>
+    </div>
   </div>
 </template>
 
