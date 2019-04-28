@@ -1,4 +1,4 @@
-<template>
+nom <template>
   <div>
     <div class="hero-head">
       <nav class="navbar">
@@ -15,12 +15,14 @@
         <div class="navbar-menu" :class="{ 'is-active': showNav }">
           <div class="navbar-end">
             <a class="navbar-item" href="/busqueda">Propuestas</a>
-            <a class="navbar-item" @click="showModal = true">Iniciar Sesión</a>
+            <a class="navbar-item" @click="showModalLogin = true">Iniciar Sesión</a>
+            <a class="navbar-item" @click="showModalRegister = true">Registrarse</a>
           </div>
         </div>
       </nav>
     </div>
-    <Login v-if="showModal" @close="showModal = false"></Login>
+    <Login v-if="showModalLogin" @close="showModalLogin = false"></Login>
+    <Register v-if="showModalRegister" @close="showModalRegister = false"></Register>
   </div>
 </template>
 
@@ -29,17 +31,27 @@
 
 <script>
 import Login from '../components/Login.vue'
+import Register from '../components/Register.vue'
 
 export default {
   name: "Navbar",
   components :{
-    Login
+    Login,
+    Register
   },
   data() {
     return { 
       showNav: false,
-      showModal : false
+      showModalLogin : false,
+      showModalRegister : false
       };
   }
 };
 </script>
+
+<style scope>
+.navbar{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+</style>

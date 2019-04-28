@@ -24,14 +24,14 @@
   </div>
 </div>
 <div class="columns">
-  <div class="column is-half box">
+  <div class="column is-half box tarjeta">
     <div  >
-    <img src="~/static/leader_360x630.png" class="bordes" alt="Placeholder image">
+      <img src="~/static/leader_360x630.png" class="bordes" alt="Placeholder image">
     </div>
     <div class="title">Unete</div>
     <div class="subtitle">a nuestra busqueda de soluciones</div>
   </div>
-  <div class="column box">
+  <div class="column box tarjeta">
     <div >
       <img src="~/static/urna_160x160.png" class="bordes" alt="Placeholder image">
     </div>
@@ -61,7 +61,12 @@ export default {
 }
 */
 .bordes{
+  padding-top: 20px;
   border-radius:50px;
+}
+
+.columns{
+  padding-bottom: 20px;
 }
 
 .container {
@@ -81,6 +86,17 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
+}
+
+.tarjeta{
+  margin-right: 20px;
+  height: 450px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.tarjeta:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .subtitle {

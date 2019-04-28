@@ -12,14 +12,14 @@
                     <div class="field">
                         <label class="label">Correo</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Digite correo">
+                            <input class="input" v-model="correo" type="email" placeholder="Digite correo">
                         </div>
                     </div>
 
                     <div class="field">
-                        <label class="label">Cedula</label>
+                        <label class="label">Contraseña</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Digite cedula">
+                            <input class="input" v-model="pass" type="password" placeholder="Digite la contraseña">
                         </div>
                     </div>
                 </section>
@@ -35,7 +35,13 @@
 
 <script>
 export default {
-    name: 'Login'
+    name: 'Login',
+    data(){
+      return {
+        'correo': '',
+        'pass': ''
+      }
+    }
 }
 </script>
 
