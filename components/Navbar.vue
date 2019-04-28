@@ -1,4 +1,4 @@
-nom <template>
+<template>
   <div>
     <div class="hero-head">
       <nav class="navbar">
@@ -35,6 +35,9 @@ import Register from '../components/Register.vue'
 
 export default {
   name: "Navbar",
+  props:{
+      bgc: Object
+  },
   components :{
     Login,
     Register
@@ -53,5 +56,8 @@ export default {
 .navbar{
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.navbar{
+  transition: 0.5s;
 }
 </style>
