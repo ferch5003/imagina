@@ -5,78 +5,86 @@
         Imagina tu ciud&aacute;
       </h1>
       <br>
-      
-<div class="columns box ">
-  <div class="column is-one-fifth">
-    <a class="button retos is-primary" ref="reto1" id="reto1" @click="retos(1)">Reto 1</a>
-  </div>
-  <div class="column is-one-fifth">
-    <a class="button retos is-success" ref="reto2" id="reto2" @click="retos(2)">Reto 2</a>
-  </div>
-  <div class="column is-one-fifth">
-    <a class="button retos is-warning" ref="reto3" id="reto3" @click="retos(3)">Reto 3</a>
-  </div>
-  <div class="column is-one-fifth">
-    <a class="button retos is-danger" ref="reto4" id="reto4" @click="retos(4)">Reto 4</a>
-  </div>
-  <div class="column is-one-fifth">
-    <a class="button retos is-info" ref="reto5" id="reto5" @click="retos(5)">Reto 5</a>
-  </div>
-</div>
-<div class="columns tarjetas">
-  <div class="column is-half box tarjeta">
-    <div  >
-      <img src="~/static/leader_360x630.png" class="bordes arcoiris" alt="Placeholder image">
+
+      <div class="columns box ">
+        <div class="column is-one-fifth">
+          <a class="button retos is-primary" ref="reto1" id="reto1" @click="retos(1)">Reto 1</a>
+        </div>
+        <div class="column is-one-fifth">
+          <a class="button retos is-success" ref="reto2" id="reto2" @click="retos(2)">Reto 2</a>
+        </div>
+        <div class="column is-one-fifth">
+          <a class="button retos is-warning" ref="reto3" id="reto3" @click="retos(3)">Reto 3</a>
+        </div>
+        <div class="column is-one-fifth">
+          <a class="button retos is-danger" ref="reto4" id="reto4" @click="retos(4)">Reto 4</a>
+        </div>
+        <div class="column is-one-fifth">
+          <a class="button retos is-info" ref="reto5" id="reto5" @click="retos(5)">Reto 5</a>
+        </div>
+      </div>
+      <div class="columns tarjetas">
+        <div class="column is-half box tarjeta" @click="showModalRegister = true">
+          <div>
+            <img src="~/static/leader_360x630.png" class="bordes arcoiris" alt="Placeholder image">
+          </div>
+          <div class="title">Unete</div>
+          <div class="subtitle">a nuestra busqueda de soluciones</div>
+        </div>
+        <div class="column is-half box tarjeta">
+          <div>
+            <img src="~/static/urna_160x160.png" class="bordes arcoiris" alt="Placeholder image">
+          </div>
+          <div class="title">Apoya</div>
+          <div class="subtitle">a la idea que mas te guste</div>
+        </div>
+      </div>
     </div>
-    <div class="title">Unete</div>
-    <div class="subtitle">a nuestra busqueda de soluciones</div>
-  </div>
-  <div class="column box tarjeta">
-    <div >
-      <img src="~/static/urna_160x160.png" class="bordes arcoiris" alt="Placeholder image">
-    </div>
-    <div class="title">Apoya</div>
-    <div class="subtitle">a la idea que mas te guste</div>
-  </div>
-</div>
-    </div>
+  <Register v-if="showModalRegister" @close="showModalRegister = false"></Register>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Register from '~/components/Register.vue'
 
 export default {
   name: 'IndexPage',
   components: {
-    Logo
+    Logo,
+    Register
+  },
+  data(){
+    return {
+      'showModalRegister': false
+    }
   },
   methods:{
     retos: function(id){
-      console.log("val",document.getElementsByClassName('navbar')[0]);
       switch(id){
         case 1:
-          document.getElementsByClassName('navbar')[0].style.backgroundColor = "#00d1b2";
+          localStorage.setItem('color','#00d1b2');
           break;
         case 2:
-          document.getElementsByClassName('navbar')[0].style.backgroundColor = "#23d160";
+          localStorage.setItem('color','#23d160');
           break;
         case 3:
-          document.getElementsByClassName('navbar')[0].style.backgroundColor = "#ffdd57";
+          localStorage.setItem('color','#ffdd57');
           break;
         case 4:
-          document.getElementsByClassName('navbar')[0].style.backgroundColor = "#ff3860";
+          localStorage.setItem('color','#ff3860');
           break;
         case 5:
-          document.getElementsByClassName('navbar')[0].style.backgroundColor = "#209cee";
+          localStorage.setItem('color','#209cee');
           break;
       }
+      window.location.replace('/busqueda');
     }
   }
 }
 </script>
 
-<style>
+<style scope>
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
