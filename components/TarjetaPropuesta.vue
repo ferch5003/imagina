@@ -4,7 +4,7 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-128x128">
-            <img src="https://bulma.io/images/placeholders/128x128.png " class="bordes" alt="Placeholder image">
+            <img :src="imagen.url" class="bordes" alt="Placeholder image">
           </figure>
         </div>
         <div class="media-content">
@@ -13,22 +13,35 @@
       </div>
 
       <div class="content wave position">
-        <User class="margin-top"/>
+        <User class="margin-top" :usuario="userjson"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import env from '../config/env.js'
 import User from '../components/User.vue'
 export default {
   name: 'TarjetaPropuesta',
+  data (){
+    return {      
+      userjson:Object
+      }
+  },
   components :{
     User
   },
     props: {
-    propuesta: Object
-  }
+    propuesta: Object,
+    imagen: Object
+  },
+created(){
+    axios.get(`${env.endpoint}/users/${this.propuesta.userId}`).then((response) => {
+        this.userjson = response.data
+      })
+}
 }
 </script>
 

@@ -3,7 +3,7 @@
     <div>
       <h1 class="title">Consolidado de Propuestas</h1>
         <div class="columns is-multiline">
-        <TarjetaPropuesta :propuesta="propuesta" v-for="propuesta in propuestas" :key= "propuesta.id" />
+        <TarjetaPropuesta :propuesta="propuesta" :imagen="imagen" v-for="propuesta in propuestas" :key= "propuesta.id" />
         </div>
     </div>
   </div>
@@ -20,14 +20,19 @@ export default {
   },
   data() {
     return {
-      propuestas: []
+      propuestas: [],
+      imagen:Object
     }
   },
   created() {
     axios.get(`${env.endpoint}/posts`).then((response) => {
       this.propuestas = response.data
+      axios.get(`${env.endpoint}/photos/1`).then((response) => {
+        this.imagen = response.data
+      })
     })
   }
+  
 }
 </script>
 
