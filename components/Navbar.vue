@@ -14,7 +14,7 @@
         </div>
         <div class="navbar-menu" :class="{ 'is-active': showNav }">
           <div class="navbar-end">
-            <a class="navbar-item" href="/busqueda">Propuestas</a>
+            <a class="navbar-item" @click="propuestas" href="/busqueda">Propuestas</a>
             <a class="navbar-item" @click="showModalLogin = true">Iniciar Sesión</a>
             <a class="navbar-item" @click="showModalRegister = true">Registrarse</a>
           </div>
@@ -43,11 +43,19 @@ export default {
     Register
   },
   data() {
-    return { 
+    return {
       showNav: false,
       showModalLogin : false,
       showModalRegister : false
       };
+  },
+  methods: {
+    propuestas: function(){
+      var color = localStorage.getItem('color');
+      if(color){
+        localStorage.removeItem('color');
+      }
+    }
   }
 };
 </script>
