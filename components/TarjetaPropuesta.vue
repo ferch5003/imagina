@@ -4,7 +4,7 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-128x128">
-            <img src="https://bulma.io/images/placeholders/128x128.png " class="bordes"alt="Placeholder image">
+            <img src="https://bulma.io/images/placeholders/128x128.png " class="bordes" alt="Placeholder image">
           </figure>
         </div>
         <div class="media-content">
