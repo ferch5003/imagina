@@ -4,7 +4,7 @@
       <nav class="navbar">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="http://bulma.io/images/bulma-logo.png" alt="Logo">
+            <img src="" alt="Logo">
           </a>
           <div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
             <span></span>
